@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function receiveDataFromSwift(data) {
+            console.log("Data received from Swift: " + data);
+            document.getElementById("message").innerText = data;
+        }
+
+        function sendDataToSwift() {
+            const data = "Hello from JavaScript!";
+            webkit.messageHandlers.swiftToJsChannel.postMessage(data);
+        }
+    </script>
+</head>
+<body>
+    <h1 id="message">No message yet</h1>
+    <button onclick="sendDataToSwift()">Send Data to Swift</button>
+</body>
+</html>
